@@ -1,0 +1,52 @@
+{
+  "snippets.ultisnips.pythonPrompt": false,
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": [
+        "go.mod"
+      ],
+      "trace.server": "verbose",
+      "filetypes": [
+        "go"
+      ]
+    },
+    "clangd": {
+      "command": "clangd",
+      "rootPatterns": [
+        "compile_flags.txt",
+        "compile_commands.json"
+      ],
+      "filetypes": [
+        "c",
+        "cc",
+        "cpp",
+        "c++",
+        "objc",
+        "objcpp"
+      ]
+    },
+    "rust": {
+      "command": "rust-analyzer",
+      "filetypes": [
+        "rust"
+      ],
+      "rootPatterns": [
+        "Cargo.toml"
+      ]
+    },
+    "lua": {
+      "command": "lua-lsp",
+      "filetypes": [
+        "lua"
+      ]
+    },
+    "python": {
+      "command": "pyright",
+      "filetypes":[
+        "py"
+      ]
+    }
+  },
+  "svelte.enable-ts-plugin": false
+}
