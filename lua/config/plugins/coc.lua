@@ -27,7 +27,6 @@ keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_spa
 keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 keyset("i", "<c-a>", "coc#refresh()", {silent = true, expr = true})
---keyset("i","<A-a>","coc#refresh#close()", {silent = true, expr = true})
 keyset("n", "d[", "<Plug>(coc-diagnostic-prev)", { silent = true })
 keyset("n", "d]", "<Plug>(coc-diagnostic-next)", { silent = true })
 

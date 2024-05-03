@@ -34,10 +34,10 @@ vim.api.nvim_set_keymap('n', '//', ':noh<CR>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-s>', '<C-o>:w<CR>', {noremap = true})
 
 -- Pestañas
-vim.api.nvim_set_keymap('n', '<A-d>', ':tabnew<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<A-e>', ':tabnext<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<A-w>', ':tabprevious<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<A-r>', ':tabclose<CR>', { noremap = true })
+--vim.api.nvim_set_keymap('n', '<A-d>', ':tabnew<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<A-e>', ':tabnext<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<A-w>', ':tabprevious<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<A-r>', ':tabclose<CR>', { noremap = true })
 
 -- Buffers abiertos
 vim.api.nvim_set_keymap('n', '<S-e>', ':bnext<CR>', { noremap = true })
@@ -48,5 +48,5 @@ vim.api.nvim_set_keymap('n', '<S-b>', ':buffers<CR>', { noremap = true })
 -- Ventanas
 vim.api.nvim_set_keymap('n', '<S-v>', ':vnew<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<S-n>', ':new<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<S-r>', ':quit<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<AV-r>', ':quit<CR>', { noremap = true })
 
