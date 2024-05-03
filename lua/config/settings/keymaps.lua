@@ -1,6 +1,8 @@
 --mapleader
 vim.g.mapleader = " "
 
+
+
 --Mappings
 vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeToggle)
 vim.keymap.set("n", "<leader>ee", vim.cmd.NvimTreeClose)
@@ -19,7 +21,8 @@ vim.api.nvim_set_keymap('i', '<C-j>', '<Down>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-k>', '<Up>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', { noremap = true })
 vim.api.nvim_set_keymap('v', 'y', '"+y', { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap("n", "<A-l>", "<C-w>l", { noremap = true })
+vim.api.nvim_set_keymap("n", "<A-h>", "<C-w>h", { noremap = true })
 
 -- funciones guardar,salir,etc
 vim.api.nvim_set_keymap('i', '<A-q>', '<Esc>', { noremap = true })
