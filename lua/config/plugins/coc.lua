@@ -2,10 +2,10 @@ vim.g.coc_global_extensions = {
     'coc-emmet', 
     'coc-css', 
     'coc-html', 
+	"coc-tsserver",
     'coc-json', 
     'coc-prettier', 
     'coc-tsserver',
-    'coc-yank', 
     'coc-tslint-plugin', 
     'coc-snippets', 
     'coc-pyright', 
@@ -14,7 +14,7 @@ vim.g.coc_global_extensions = {
     'coc-go',
 }
 
-local keyset = vim.keymap.set
+local keyset = vim.api.nvim_set_keymap
 
 -- Autocomplete
 function _G.check_back_space()
@@ -26,9 +26,11 @@ local opts = { silent = true, noremap = true, expr = true, replace_keycodes = fa
 keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
 keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
-keyset("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
+keyset("i", "<c-a>", "coc#refresh()", {silent = true, expr = true})
+--keyset("i","<A-a>","coc#refresh#close()", {silent = true, expr = true})
 keyset("n", "d[", "<Plug>(coc-diagnostic-prev)", { silent = true })
 keyset("n", "d]", "<Plug>(coc-diagnostic-next)", { silent = true })
+
 
 -- GoTo code navigation
 keyset("n", "gd", "<Plug>(coc-definition)", { silent = true })
