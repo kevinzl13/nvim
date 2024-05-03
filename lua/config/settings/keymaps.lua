@@ -42,7 +42,7 @@ vim.api.nvim_set_keymap('n', '<A-r>', ':tabclose<CR>', { noremap = true })
 -- Buffers abiertos
 vim.api.nvim_set_keymap('n', '<S-e>', ':bnext<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<S-q>', ':bprev<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<S-w>', ':bdelete<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<S-w>', ':Bdelete<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<S-b>', ':buffers<CR>', { noremap = true })
 
 -- Ventanas
