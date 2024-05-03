@@ -12,12 +12,12 @@ MAPLEADER = " " espace
     <th>Qué hace?</th>
   </tr>
   <tr>
-    <td><leader>e</td>
-    <td><leader>ee </td>
-    <td><leader>1</td>
-    <td><leader>0 </td>
-    <td><Tab> </td>
-    <td><S-TAb> </td>
+    <td>leadere</td>
+    <td>leaderee </td>
+    <td>leader1</td>
+    <td>leader0 </td>
+    <td>Tab </td>
+    <td>S-TAb </td>
   </tr>
   <tr>
     <td>NvimTreeToggle</td>
@@ -36,12 +36,12 @@ MAPLEADER = " " espace
     <th>Qué hace?</th>
   </tr>
   <tr>
-    <td><C-h></td>
-    <td><C-j></td>
-    <td><C-k></td>
-    <td><C-l> </td>
-    <td><A-l></td>
-    <td><A-h> </td>
+    <td>C-h</td>
+    <td>C-j</td>
+    <td>C-k</td>
+    <td>C-l </td>
+    <td>A-l</td>
+    <td>A-h </td>
   </tr>
   <tr>
     <td>Se mueve hacia la izquierda</td>
@@ -61,11 +61,11 @@ MAPLEADER = " " espace
     <th>Qué hace?</th>
   </tr>
   <tr>
-    <td><A-q></td>
-    <td><C-s></td>
-    <td><C-e></td>
-    <td><C-q> </td>
-    <td><C-x></td>
+    <td>A-q</td>
+    <td>C-s</td>
+    <td>C-e</td>
+    <td>C-q </td>
+    <td>C-x</td>
   </tr>
   <tr>
     <td>Esc</td>
@@ -84,12 +84,12 @@ MAPLEADER = " " espace
     <th>Qué hace?</th>
   </tr>
   <tr>
-    <td><S-e></td>
-    <td><S-q></td>
-    <td><S-w></td>
-    <td><S-b> </td>
-    <td><S-v></td>
-    <td> <S-n> </td>
+    <td>S-e</td>
+    <td>S-q</td>
+    <td>S-w</td>
+    <td>S-b </td>
+    <td>S-v</td>
+    <td> S-n </td>
   </tr>
   <tr>
     <td>bnext</td>
@@ -101,14 +101,4 @@ MAPLEADER = " " espace
   </tr>
 </table>
 
--- Buffers abiertos
-vim.api.nvim_set_keymap('n', '<S-e>', ':bnext<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<S-q>', ':bprev<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<S-w>', ':Bdelete<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<S-b>', ':buffers<CR>', { noremap = true })
-
--- Ventanas
-vim.api.nvim_set_keymap('n', '<S-v>', ':vnew<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<S-n>', ':new<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<A-r>', ':quit<CR>', { noremap = true })
 
