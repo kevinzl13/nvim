@@ -41,6 +41,7 @@
       ]
     }
   },
+  "snippets.ultisnips.pythonPrompt": false,
   "diagnostic.enableMessage": "never",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": "* ",
@@ -72,5 +73,6 @@
     "constructor": "   Constructor",
     "value": "  Value",
     "enumMember": "   Enum Member"
-  }
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }
