@@ -41,6 +41,8 @@ opt.filetype_indent = true
 -- Desactivar todas las advertencias de la campana
 opt.belloff = 'all'
 
+opt.splitbelow = true
+opt.splitrigth = true
 
 -- background
 -- opt.background = 'dark'

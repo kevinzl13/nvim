@@ -1,6 +1,9 @@
 --mapleader
 vim.g.mapleader = " "
 
+-- terminal
+vim.api.nvim_set_keymap('n', '<C-t>', ':split<CR>:term pwsh.exe<CR>:resize 10<CR>', { noremap = true, silent = true })
+
 
 
 --Mappings
