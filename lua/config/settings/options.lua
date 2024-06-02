@@ -44,5 +44,13 @@ opt.belloff = 'all'
 opt.splitbelow = true
 opt.splitrigth = true
 
--- background
--- opt.background = 'dark'
+opt.wrap = true
+opt.linebreak = true
+
+-- Indentar líneas ajustadas
+opt.breakindent = true
+
+-- Indicar líneas ajustadas con un símbolo
+opt.showbreak = ">"
+
+
