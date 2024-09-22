@@ -15,7 +15,7 @@ return {
 				formatting.autopep8,
 				formatting.prettier,
 				diagnostics.flake8.with({
-					extra_args = { "--extend-ignore=E501,E701,E702,E302" },
+					extra_args = { "--extend-ignore=E501,E701,E702,E302,E305" },
 				})
 			},
 			autostart = true,
