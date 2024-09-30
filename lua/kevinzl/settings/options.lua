@@ -1,52 +1,57 @@
+vim.cmd('filetype on')
+vim.cmd('syntax on')
+
+local function remove_trailing_whitespace()
+    vim.cmd([[ %s/\s\+$//e ]]) -- Comando Vim para eliminar espacios en blanco al final de las líneas
+end
+
+-- Autocomando que se ejecuta antes de guardar cualquier archivo
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",                       -- Se aplica a todos los archivos
+    callback = remove_trailing_whitespace, -- Llama a la función definida
+})
+
+
 local opt = vim.opt
 
--- Configurar números de línea relativos para saltar
+-- Números de línea
 opt.number = true
 opt.relativenumber = true
 
-
--- Configurar el estado de la última línea para siempre mostrarlo
+-- Estado de la última línea
 opt.laststatus = 2
 
--- Activar la búsqueda resaltada
+-- Búsqueda
 opt.hlsearch = true
-
--- Activar la búsqueda incremental
 opt.incsearch = true
-
--- Hacer que la búsqueda sea inteligente (sensible a mayúsculas/minúsculas si se incluyen mayúsculas)
 opt.smartcase = true
 
--- Activar la indentación automática
+-- Indentación
 opt.autoindent = true
 opt.smartindent = true
 
--- Expandir tabulaciones en espacios
+-- Tabulaciones
 opt.expandtab = true
-
--- Establecer el ancho de la tabulación a 4 espacios
 opt.shiftwidth = 4
 opt.tabstop = 4
 opt.softtabstop = 4
 
+-- Ajustes de línea
 opt.wrap = true
 opt.linebreak = true
 
-
---
+-- Opciones generales
 opt.backup = false
 opt.errorbells = false
-opt.swapfile =false
+opt.swapfile = false
 opt.signcolumn = 'yes'
 
--- Habilitar soporte para colores de 24 bits
+-- Colores
 opt.termguicolors = true
 
--- clipboard
+-- Portapapeles
 opt.clipboard:append("unnamedplus")
 
-
-vim.cmd('filetype on')
--- -- Activar la sintaxis resaltada
-vim.cmd('syntax on')
-
+--formato de linebreak
+opt.wrap = true -- Habilita el ajuste de línea
+opt.linebreak = true -- Habilita el ajuste de línea respetando las palabras
