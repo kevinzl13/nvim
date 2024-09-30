@@ -22,7 +22,7 @@ opt.autoindent = true
 opt.smartindent = true
 
 -- Expandir tabulaciones en espacios
-opt.expandtab = false
+opt.expandtab = true
 
 -- Establecer el ancho de la tabulación a 4 espacios
 opt.shiftwidth = 4
