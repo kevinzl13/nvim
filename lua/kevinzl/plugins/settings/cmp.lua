@@ -60,7 +60,7 @@ function M.setup()
         },
 
         mapping = {
-            ["<C-e>"] = cmp.mapping.abort(),
+            -- ["<C-e>"] = cmp.mapping.abort(),
             ["<TAB>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
@@ -71,19 +71,40 @@ function M.setup()
                 end
             end, { "i", "s" }),
             ["<S-TAB>"] = cmp.mapping.select_prev_item(),
-
             ["<CR>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     if cmp.get_selected_entry() then
                         cmp.confirm { behavior = cmp.ConfirmBehavior.Insert, select = false }
                     else
-                        fallback() -- Ejecuta el fallback si no hay elemento seleccionado
+                        fallback()
                     end
                 else
-                    fallback() -- Ejecuta el fallback si el menú no está visible
+                    fallback()
                 end
             end, { "i", "s" }),
-            ["<C-a>"] = cmp.mapping.complete(),
+            ["<C-a>"] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.abort()    -- Si el menú está visible, lo cierra
+                else
+                    cmp.complete() -- Si no está visible, lo abre
+                end
+            end, { "i", "s" }),
+            ["<C-j>"] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item({  count = 4, behavior = cmp.SelectBehavior.Select })
+                else
+                    fallback() -- Movimiento hacia abajo si no está visible
+                end
+            end, { "i", "s" }),
+
+            -- Mapear <C-k> para hacer scroll en autocompletado y moverse hacia arriba cuando no esté visible
+            ["<C-k>"] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item({ count = 4, behavior = cmp.SelectBehavior.Select })
+                else
+                    fallback() -- Movimiento hacia arriba si no está visible
+                end
+            end, { "i", "s" }),
         },
         sources = {
             { name = "nvim_lsp" },
