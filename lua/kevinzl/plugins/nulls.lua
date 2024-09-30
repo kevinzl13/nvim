@@ -12,8 +12,12 @@ return {
 
 		null_ls.setup({
 			sources = {
-				formatting.autopep8,
-				formatting.prettier,
+				formatting.autopep8.with({
+                    extra_args = { "--indent-size=4" }
+                }),
+				formatting.prettier.with({
+                     extra_args = { "--tab-width", "4" , "--print-width", "70"},
+                }),
 				diagnostics.flake8.with({
 					extra_args = { "--extend-ignore=E501,E701,E702,E302,E305,W391" },
 				})
