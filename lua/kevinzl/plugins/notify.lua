@@ -1,13 +1,14 @@
 return {
     "rcarriga/nvim-notify",
     config = function()
+        vim.opt.termguicolors = true
         local notify = require "notify"
         notify.setup({
-            background_colour = "#282c34",
             stages = "fade",
+            background_colour = "#282c34",
             timeout = 2000, -- Ajustar el tiempo de visualización
             top_down = false,
-            max_width = 60, -- Ancho máximo para forzar el salto de línea
+            max_width = 72, -- Ancho máximo para forzar el salto de línea
             max_height = 25,
             fill_group = "Notify",
             border = "rounded",
