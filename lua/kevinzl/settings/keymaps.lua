@@ -5,6 +5,14 @@ local ls = require("luasnip")
 -- NvimTree
 vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeToggle, opts)
 
+-- Terminal
+
+vim.api.nvim_set_keymap("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>tf", ":ToggleTerm direction=float<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", opts)
+vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]],  opts)
+vim.api.nvim_set_keymap('t', '<C-q>', [[<C-\><C-n>]],  opts)
+
 -- Buffers
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
