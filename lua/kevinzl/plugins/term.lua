@@ -26,7 +26,7 @@ return {
                 border = 'curved',    -- Borde curvado para el terminal flotante
                 width = 100,          -- Ancho del terminal flotante
                 height = 20,          -- Altura del terminal flotante
-                winblend = 12,        -- Nivel de transparencia
+                winblend = 20,        -- Nivel de transparencia
             },
             shell = shell,
         })
