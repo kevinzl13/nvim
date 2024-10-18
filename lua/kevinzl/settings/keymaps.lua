@@ -7,7 +7,7 @@ vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeToggle, opts)
 
 -- Terminal
 
-vim.api.nvim_set_keymap("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>tt", ":ToggleTerm direction=horizontal<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>tf", ":ToggleTerm direction=float<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", opts)
 vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]],  opts)
