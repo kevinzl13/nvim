@@ -1,3 +1,4 @@
+
 return {
 	'akinsho/bufferline.nvim',
 	version = "*",
@@ -14,17 +15,41 @@ return {
 				},
 				offsets = {
 					{
-						filetype = "NvimTree", -- Ajusta el espacio para el NvimTree
-						text = "File Explorer", -- Texto que aparece en el espacio
-						padding = 1, -- Relleno alrededor del texto
+						filetype = "NvimTree",
+						text = "File Explorer",
+						highlight = "Directory",
+						padding = 1,
 					},
 				},
 				close_command = function(bufnr)
-					-- Usa :Bdelete en lugar de :bd
 					require('bufdelete').bufdelete(bufnr, true)
 				end,
-				mode = "buffers"
-			}
+				right_mouse_command = "Bdelete! %d",
+				diagnostics = false, -- Sin diagnósticos para un diseño limpio
+				mode = "buffers",
+				show_buffer_close_icons = true,
+				show_close_icon = false,
+				separator_style = "thin", -- Separadores simples
+				always_show_bufferline = true,
+				indicator = {
+					icon = "▎", -- Indicador del buffer activo
+					style = "icon",
+				},
+				modified_icon = "●", -- Icono para buffers modificados
+				left_trunc_marker = "<", -- Indicador de truncamiento izquierdo
+				right_trunc_marker = ">", -- Indicador de truncamiento derecho
+			},
+			highlights = {
+				buffer_selected = {
+					fg = "#ffffff", -- Color del texto del buffer seleccionado
+					bg = "#3b4252", -- Fondo del buffer seleccionado
+					bold = true, -- Negrita para el buffer seleccionado
+				},
+				modified_selected = {
+					fg = "#ffcc00", -- Color del ícono modificado cuando está seleccionado
+					bg = "#3b4252", -- Fondo coincidente con el buffer seleccionado
+				},
+			},
 		})
 	end,
 }
