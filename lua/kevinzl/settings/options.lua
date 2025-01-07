@@ -1,6 +1,20 @@
 vim.cmd('filetype on')
 vim.cmd('syntax on')
 
+vim.cmd('filetype plugin indent on')
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*",
+    callback = function()
+        vim.bo.autoindent = true
+        vim.bo.smartindent = true
+        vim.bo.expandtab = true
+        vim.bo.shiftwidth = 4
+        vim.bo.tabstop = 4
+        vim.bo.softtabstop = 4
+    end,
+})
+
 local function remove_trailing_whitespace()
     vim.cmd([[ %s/\s\+$//e ]]) -- Comando Vim para eliminar espacios en blanco al final de las líneas
 end
@@ -29,9 +43,10 @@ opt.smartcase = true
 -- Indentación
 opt.autoindent = true
 opt.smartindent = true
+opt.expandtab = true
+opt.smarttab = true
 
 -- Tabulaciones
-opt.expandtab = true
 opt.shiftwidth = 4
 opt.tabstop = 4
 opt.softtabstop = 4
