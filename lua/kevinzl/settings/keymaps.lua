@@ -50,7 +50,7 @@ vim.keymap.set('v', 'y', '"+y', opts)
 -- Funciones guardar, salir, etc.
 vim.keymap.set('n', '<C-q>', ':q<Esc>', opts)
 vim.keymap.set('n', '<C-s>', ':w<CR>', opts)
-vim.keymap.set('n', '//', ':noh<return><esc>', opts)
+vim.keymap.set('n', '//', ':nohlsearch<esc>', opts)
 
 -- Ventanas o splits
 vim.keymap.set("n", "<leader>V", ":vsplit<CR>", opts)
