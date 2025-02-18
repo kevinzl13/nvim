@@ -96,16 +96,17 @@ local servers = {
                 cargo = {
                     allFeatures = true, -- Carga todas las features del proyecto
                     loadOutDirsFromCheck = true, -- Mejora la carga de directorios
-                    runBuildScripts = true, -- Permite analizar macros
+                    runBuildScripts = false, -- Permite analizar macros
+                    buildScripts = { enable = false },
                 },
                 checkOnSave = {
                     command = "clippy", -- Usa Clippy en vez de check para mejor rendimiento
                 },
                 procMacro = {
-                    enable = true, -- Habilita macros de procedimiento
+                    enable = false, -- Deshabilita macros de procedimiento
                 },
                 files = {
-                    excludeDirs = { "target" }, -- Evita analizar archivos en target/
+                    exclude = { "target/**" }, -- Evita analizar archivos en target/
                 },
                 formatting = {
                     enable = true, -- Activar formateo en rust-analyzer
