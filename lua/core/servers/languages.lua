@@ -12,5 +12,7 @@ return {
     "yaml",
     "c",
     "cpp",
-    "toml"
+    "toml",
+    "html",
+    "css",
 }

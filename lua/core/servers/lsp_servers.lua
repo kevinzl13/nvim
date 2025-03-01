@@ -10,6 +10,8 @@ return {
         "clangd",
         "marksman",
         "yamlls",
+        "html",
+        "cssls",
     },
     tools = { -- Herramientas de formateo y linters
         "stylua", -- Formateador para Lua

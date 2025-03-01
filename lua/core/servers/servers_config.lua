@@ -120,6 +120,24 @@ local servers = {
         single_file_support = true,
         on_attach = on_attach,
     },
+
+    cssls = {
+        filetypes = { "css", "scss", "less" },
+        root_dir = function(fname)
+            return util.root_pattern(".git", "package.json")(fname) or util.path.dirname(fname)
+        end,
+        single_file_support = true,
+        on_attach = on_attach,
+    },
+
+    html = {
+        filetypes = { "html", "templ" },
+        root_dir = function(fname)
+            return util.root_pattern(".git", "package.json")(fname) or util.path.dirname(fname)
+        end,
+        single_file_support = true,
+        on_attach = on_attach,
+    },
 }
 
 return servers

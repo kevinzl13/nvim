@@ -21,6 +21,7 @@ return {
                 }),
                 formatting.prettier.with({
                     extra_args = { "--tab-width", "4", "--print-width", "80" },
+                    filetypes = { "html", "jinja", "jinja2", "css", "scss", "less" },
                 }),
                 formatting.clang_format.with({
                     extra_args = {
