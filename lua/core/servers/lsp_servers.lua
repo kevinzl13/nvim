@@ -12,6 +12,7 @@ return {
         "yamlls",
         "html",
         "cssls",
+        "emmet_language_server",
     },
     tools = { -- Herramientas de formateo y linters
         "stylua", -- Formateador para Lua
