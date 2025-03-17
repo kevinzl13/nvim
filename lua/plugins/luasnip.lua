@@ -7,6 +7,7 @@ return {
     config = function()
         local ls = require("luasnip")
         local types = require("luasnip.util.types")
+        require("luasnip.loaders.from_vscode").lazy_load()
 
         ls.config.set_config({
             -- Esto le dice a LuaSnip que recuerde el último fragmento,
