@@ -4,6 +4,9 @@ local M = require("core.keymaps")
 local on_attach = function(client, bufnr)
     -- Llamar a la función de keymaps personalizada
     M.lsp_keymaps(bufnr)
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.buf.inlay_hint(bufnr, true) -- Activar los inline hints
+    end
 end
 
 local servers = {
@@ -12,6 +15,7 @@ local servers = {
             Lua = {
                 telemetry = { enable = false },
                 workspace = { checkThirdParty = false },
+                hint = { enable = true, setType = true, paramType = true },
             },
         },
         filetypes = { "lua" },
@@ -37,6 +41,8 @@ local servers = {
                     autoSearchPaths = true,
                     diagnosticMode = "openFilesOnly",
                     useLibraryCodeForTypes = true,
+                    typeCheckingMode = "strict", -- 'off', 'basic', 'strict'
+                    inlayHints = { enable = true },
                 },
             },
         },
@@ -56,6 +62,7 @@ local servers = {
                     unreachable = true,
                 },
                 staticcheck = true,
+                inlayHints = { enable = true },
             },
         },
         filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -65,6 +72,11 @@ local servers = {
         on_attach = on_attach,
     },
     clangd = {
+        settings = {
+            clangd = {
+                inlayHints = { enable = true },
+            },
+        },
         filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
         root_dir = function(fname)
             return util.root_pattern(
@@ -81,6 +93,24 @@ local servers = {
         on_attach = on_attach,
     },
     ts_ls = {
+        settings = {
+            typescript = {
+                inlayHints = {
+                    parameterNames = { enabled = "all" },
+                    parameterTypes = { enabled = true },
+                    variableTypes = { enabled = true },
+                    functionLikeReturnTypes = { enabled = true },
+                },
+            },
+            javascript = {
+                inlayHints = {
+                    parameterNames = { enabled = "all" },
+                    parameterTypes = { enabled = true },
+                    variableTypes = { enabled = true },
+                    functionLikeReturnTypes = { enabled = true },
+                },
+            },
+        },
         filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
         single_file_support = true,
         root_dir = function(fname)
@@ -111,6 +141,7 @@ local servers = {
                 formatting = {
                     enable = true, -- Activar formateo en rust-analyzer
                 },
+                inlayHints = { enable = true },
             },
         },
         filetypes = { "rust" },

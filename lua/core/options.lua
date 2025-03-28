@@ -41,3 +41,11 @@ opt.clipboard:append("unnamedplus")
 --formato de linebreak
 opt.wrap = true -- Habilita el ajuste de línea
 opt.linebreak = true -- Habilita el ajuste de línea respetando las palabras
+
+-- Habilitar detección de tipo de archivo, indentación y plugins
+vim.cmd("filetype on")
+vim.cmd("filetype indent on")
+vim.cmd("filetype plugin on")
+
+-- Habilitar resaltado de sintaxis
+vim.cmd("syntax on")

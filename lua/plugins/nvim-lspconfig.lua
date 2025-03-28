@@ -8,7 +8,6 @@ return {
         "hrsh7th/cmp-nvim-lsp", -- Fuente de autocompletado para LSP
         "L3MON4D3/LuaSnip", -- Snippets
         "folke/neodev.nvim", -- Mejoras para el LSP de Lua
-        "simrat39/rust-tools.nvim",
     },
     config = function()
         local servers = require("core.servers.lsp_servers")
