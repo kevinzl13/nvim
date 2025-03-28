@@ -4,8 +4,11 @@ local M = require("core.keymaps")
 local on_attach = function(client, bufnr)
     -- Llamar a la función de keymaps personalizada
     M.lsp_keymaps(bufnr)
+
+    -- Inlay hints mejorados (estilo VSCode)
     if client.server_capabilities.inlayHintProvider then
-        vim.lsp.buf.inlay_hint(bufnr, true) -- Activar los inline hints
+        require("lsp-inlayhints").on_attach(client, bufnr) -- Integración del plugin
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr }) -- Activación nativa
     end
 end
 
@@ -15,7 +18,12 @@ local servers = {
             Lua = {
                 telemetry = { enable = false },
                 workspace = { checkThirdParty = false },
-                hint = { enable = true, setType = true, paramType = true },
+                hint = {
+                    enable = true,
+                    setType = true,
+                    paramType = true,
+                    arrayIndex = "Enable",
+                },
             },
         },
         filetypes = { "lua" },
@@ -72,9 +80,20 @@ local servers = {
         on_attach = on_attach,
     },
     clangd = {
+        cmd = {
+            "clangd",
+            "--background-index",
+            "--clang-tidy",
+            "--header-insertion=never",
+            "--completion-style=detailed",
+            "--function-arg-placeholders", -- <-- Esto habilita los hints
+            "--inlay-hints", -- <-- Habilita explícitamente los hints
+        },
         settings = {
             clangd = {
                 inlayHints = { enable = true },
+                parameterNames = true,
+                deducedTypes = true,
             },
         },
         filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
@@ -96,18 +115,26 @@ local servers = {
         settings = {
             typescript = {
                 inlayHints = {
-                    parameterNames = { enabled = "all" },
-                    parameterTypes = { enabled = true },
-                    variableTypes = { enabled = true },
-                    functionLikeReturnTypes = { enabled = true },
+                    includeInlayParameterNameHints = "all",
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayVariableTypeHints = true,
+                    includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayEnumMemberValueHints = true,
                 },
             },
             javascript = {
                 inlayHints = {
-                    parameterNames = { enabled = "all" },
-                    parameterTypes = { enabled = true },
-                    variableTypes = { enabled = true },
-                    functionLikeReturnTypes = { enabled = true },
+                    includeInlayParameterNameHints = "all",
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayVariableTypeHints = true,
+                    includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayEnumMemberValueHints = true,
                 },
             },
         },

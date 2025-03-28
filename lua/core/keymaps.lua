@@ -141,9 +141,14 @@ M.lsp_keymaps = function(bufnr)
             luasnip.jump(-1)
         end
     end, opts)
+
+    -- Toggle de inlay hints (NUEVO)
+    vim.keymap.set("n", "<A-k>", function()
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
+    end, { buffer = bufnr, desc = "Toggle inlay hints" })
 end
 
--- Comentarios 
+-- Comentarios
 M.comment = {
     toggler = {
         line = "gcc", -- Line-comment toggle keymap
