@@ -23,7 +23,7 @@ return {
 
 		-- Linters
 		"flake8", -- Python
-		"eslint_d", -- JS/TS (usa solo uno entre eslint_d o eslint)
+		"eslint", -- JS/TS (usa solo uno entre eslint_d o eslint)
 		"cpplint", -- C/C++
 		"golangci-lint", -- Go
 	},
