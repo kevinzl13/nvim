@@ -136,6 +136,10 @@ M.general = {
 		mode = { "n" },
 		key = "<leader>cc", -- Alternar Copilot
 		action = function()
+			if vim.g.copilot_enabled == nil then
+				vim.g.copilot_enabled = true -- Inicializar la variable si no existe
+			end
+
 			if vim.g.copilot_enabled then
 				vim.cmd("Copilot disable")
 				vim.g.copilot_enabled = false
