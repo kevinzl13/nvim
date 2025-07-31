@@ -35,7 +35,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- Formatear
 		vim.keymap.set({ "n", "i" }, "<A-S-f>", function()
-			vim.lsp.buf.format({ async = true })
+			-- vim.lsp.buf.format({ async = true })
+			require("conform").format({ async = true, lsp_fallback = true })
 		end, opts)
 
 		-- Inlay hints si están disponibles

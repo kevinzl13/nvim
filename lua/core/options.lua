@@ -40,16 +40,14 @@ opt.mouse = "a"
 opt.backspace = "indent,eol,start"
 
 -- Portapapeles
-vim.api.nvim_set_option("clipboard", "unnamedplus")
+opt.clipboard = "unnamedplus"
 
 --formato de linebreak
 opt.wrap = true
 opt.linebreak = true
 
 -- Habilitar detección de tipo de archivo, indentación y plugins
-vim.cmd("filetype on")
-vim.cmd("filetype indent on")
-vim.cmd("filetype plugin on")
+vim.cmd("filetype plugin indent on")
 
 -- Habilitar resaltado de sintaxis
 opt.foldmethod = "syntax"
@@ -58,3 +56,5 @@ opt.foldlevelstart = 99
 -- adicionales
 opt.splitright = true -- Dividir ventanas a la derecha
 opt.splitbelow = true -- Dividir ventanas abajo
+
+opt.shadafile = "NONE"
