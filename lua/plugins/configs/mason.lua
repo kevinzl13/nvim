@@ -2,8 +2,6 @@ return {
 	ensure_installed = {
 		"lua-language-server",
 		"pyright",
-		"isort",
-		"black",
 		"stylua",
 		"typescript-language-server",
 		"rust-analyzer",
@@ -19,6 +17,14 @@ return {
 		"eslint",
 		"taml-language-server",
 		"tombi",
+		"prettier",
+		"autopep8",
+		"gofump",
+		"selene",
+		"flake8",
+		"eslint_d",
+		"cpplint",
+		"golangci-lint",
 	},
 	max_concurrent_installers = 1,
 }

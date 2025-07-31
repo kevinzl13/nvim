@@ -1,7 +1,16 @@
 return {
 	formatters_by_ft = {
 		lua = { "stylua" },
-		python = { "isort", "black" },
+		python = { "autopep8" },
+		javascript = { "prettier" },
+		typescript = { "prettier" },
+		json = { "prettier" },
+		yaml = { "prettier" },
+		markdown = { "prettier" },
+		c = { "clang-format" },
+		cpp = { "clang-format" },
+		rust = { "rustfmt" },
+		go = { "gofumpt" },
 	},
 	format_on_save = {
 		async = false,
