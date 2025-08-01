@@ -80,11 +80,11 @@ cmp.setup({
 	}),
 
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
-		{ name = "buffer" },
+		{ name = "nvim_lsp" }, -- prioridad alta: LSP primero
+		{ name = "luasnip" }, -- luego snippets
+	}, {
+		{ name = "buffer" }, -- por último buffer
 	}),
-
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		expandable_indicator = true,

@@ -1,49 +1,53 @@
--- Leader
+-- Leader key
 vim.g.mapleader = " "
 
 local opts = { noremap = true, silent = true }
 
--- Mappings
+-- ====================================
+-- General Mappings
+-- ====================================
 
--- nvimtree
+-- Normal Mode
+vim.keymap.set("n", "<C-s>", ":w<CR>", opts)
+vim.keymap.set("n", "<C-q>", ":q<CR>", opts)
+vim.keymap.set("n", "<leader>o", "o<Esc>k", opts)
 
-vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>")
+-- Insert Mode
+vim.keymap.set("i", "<C-s>", "<Cmd>w<CR>", opts)
+vim.keymap.set("i", "<C-q>", "<Esc>", opts)
 
--- Buffers
-vim.keymap.set("n", "<Tab>", ":bnext<CR>")
-vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
-vim.keymap.set("n", "<A-w>", ":Bdelete<CR>")
+-- Visual Mode
+vim.keymap.set("v", "y", '"+y"', opts) -- copy to system clipboard
 
--- Copy/Search
-vim.keymap.set("v", "y", '"+y"')
-vim.keymap.set("n", "//", ":nohlsearch<esc>")
+-- Disable search highlight
+vim.keymap.set("n", "//", ":nohlsearch<CR>", opts)
 
--- insert mode
-vim.keymap.set("i", "<C-s>", "<Cmd>w<CR>")
-vim.keymap.set("i", "<C-q>", "<Esc>")
+-- Buffer Navigation
+vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
+vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
+vim.keymap.set("n", "<A-w>", ":Bdelete<CR>", opts)
 
---normal mode
-vim.keymap.set("n", "<C-q>", ":q<Esc>")
-vim.keymap.set("n", "<C-s>", ":w<CR>")
-vim.keymap.set("n", "<leader>o", "o<Esc>k")
+-- ====================================
+-- Visual Mode – Line Movement and Indentation
+-- ====================================
+vim.keymap.set("x", "K", ":<C-u>move '<-2<CR>gv-gv", opts)
+vim.keymap.set("x", "J", ":<C-u>move '>+1<CR>gv-gv", opts)
+vim.keymap.set("x", ">", ">gv", opts)
+vim.keymap.set("x", "<", "<gv", opts)
+vim.keymap.set("x", "<CR>", ":<C-u>normal! gv<CR><Esc>", opts)
 
--- Indentacion
-vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv'")
-vim.keymap.set("x", "J", ":move '>-+1<CR>gv-gv'")
-vim.keymap.set("x", ">", ">gv")
-vim.keymap.set("x", "<", "<gv")
-vim.keymap.set("x", "<CR>", [[:normal! gv<CR><Esc>]], opts)
+-- ====================================
+-- NvimTree
+-- ====================================
+vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
 
--- Term
-vim.keymap.set("n", "<leader>tt", ":ToggleTerm direction=horizontal")
-vim.keymap.set("n", "<leader>tf", ":ToggleTerm direction=float")
-vim.keymap.set("n", "<leader>tv", ":ToggleTerm direction=vertical")
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
-vim.keymap.set("t", "<C-q>", [[<C-\><C-n>]])
+-- ====================================
+-- ToggleTerm
+-- ====================================
+vim.keymap.set("n", "<leader>tt", ":ToggleTerm direction=horizontal<CR>", opts)
+vim.keymap.set("n", "<leader>tf", ":ToggleTerm direction=float<CR>", opts)
+vim.keymap.set("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", opts)
 
--- inlay hints
-vim.keymap.set("n", "<leader>uh", function()
-	local bufnr = vim.api.nvim_get_current_buf()
-	local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
-	vim.lsp.inlay_hint.enable(not enabled, { bufnr = bufnr })
-end, { desc = "Toggle Inlay Hints" })
+-- Terminal Mode Escaping
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts)
+vim.keymap.set("t", "<C-q>", [[<C-\><C-n>]], opts)
