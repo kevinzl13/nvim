@@ -1,14 +1,9 @@
--- 🔔 Mostrar notificación solo una vez por cliente LSP (excluye null-ls)
-local notified_clients = {}
-
+-- 🔔 Mostrar notificación por cliente LSP
 vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		if client and client.name ~= "null-ls" and not notified_clients[client.id] then
-			vim.notify("󰒕 Servidor LSP '" .. client.name .. "' listo", vim.log.levels.INFO, {
-				title = "LSP",
-			})
-			notified_clients[client.id] = true
+	callback = function(ev)
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		if client and client.server_capabilities.completionProvider then
+			print("LSP completions enabled for " .. client.name)
 		end
 	end,
 })
