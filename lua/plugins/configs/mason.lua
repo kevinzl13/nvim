@@ -25,6 +25,7 @@ return {
 		"eslint_d",
 		"cpplint",
 		"golangci-lint",
+		"rustfmt",
 	},
 	max_concurrent_installers = 1,
 }
