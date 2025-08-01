@@ -82,7 +82,6 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
-	}, {
 		{ name = "buffer" },
 	}),
 
@@ -93,9 +92,9 @@ cmp.setup({
 			mode = "symbol_text",
 			preset = "default",
 			menu = {
-				buffer = "[Buffer]",
 				nvim_lsp = "[LSP]",
 				luasnip = "[Snip]",
+				buffer = "[Buffer]",
 				path = "[Path]",
 			},
 			before = function(entry, vim_item)
