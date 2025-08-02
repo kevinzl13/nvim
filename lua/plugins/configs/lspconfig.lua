@@ -124,6 +124,9 @@ lspconfig.gopls.setup({
 
 -- Rust
 lspconfig.rust_analyzer.setup({
+	capabilities = {
+		positionEncoding = "utf-8",
+	},
 	settings = {
 		["rust-analyzer"] = {
 			cargo = {

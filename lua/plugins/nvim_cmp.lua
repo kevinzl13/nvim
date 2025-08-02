@@ -10,7 +10,6 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 		"windwp/nvim-autopairs",
 		"onsails/lspkind.nvim",
-		"rafamadriz/friendly-snippets",
 	},
 	config = function()
 		-- Carga configuración base

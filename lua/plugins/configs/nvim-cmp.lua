@@ -81,8 +81,8 @@ cmp.setup({
 
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" }, -- prioridad alta: LSP primero
+		{ name = "path" },
 		{ name = "luasnip" }, -- luego snippets
-	}, {
 		{ name = "buffer" }, -- por último buffer
 	}),
 	formatting = {
@@ -93,9 +93,9 @@ cmp.setup({
 			preset = "default",
 			menu = {
 				nvim_lsp = "[LSP]",
+				path = "[Path]",
 				luasnip = "[Snip]",
 				buffer = "[Buffer]",
-				path = "[Path]",
 			},
 			before = function(entry, vim_item)
 				vim_item.kind = string.format("%s %s", lspkind.symbolic(vim_item.kind) or "", vim_item.kind)
