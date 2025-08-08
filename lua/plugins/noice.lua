@@ -1,0 +1,68 @@
+return {
+	"folke/noice.nvim",
+	event = "VeryLazy",
+	dependencies = {
+		"MunifTanjim/nui.nvim",
+		"rcarriga/nvim-notify",
+	},
+	config = function()
+		-- Configuración sencilla para nvim-notify
+		require("notify").setup({
+			stages = "fade", -- animación simple
+			timeout = 3000, -- duración del mensaje en ms
+			top_down = true, -- los mensajes nuevos van arriba
+		})
+
+		-- Configuración básica de noice.nvim
+		require("noice").setup({
+			lsp = {
+				override = {
+					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+					["vim.lsp.util.stylize_markdown"] = true,
+					["cmp.entry.get_documentation"] = true,
+				},
+			},
+			presets = {
+				bottom_search = true, -- línea de búsqueda abajo
+				command_palette = true, -- cmdline como paleta de comandos
+				long_message_to_split = true, -- divide mensajes largos
+				inc_rename = false,
+				lsp_doc_border = false,
+			},
+			cmdline = {
+				enabled = true,
+				view = "cmdline_popup",
+				opts = {},
+			},
+			views = {
+				cmdline_popup = {
+					position = {
+						row = 5, -- fila 5 desde arriba
+						col = "50%", -- centrado horizontalmente
+					},
+					size = {
+						width = 60, -- ancho del cuadro
+						height = "auto",
+					},
+					border = {
+						style = "rounded", -- borde redondeado
+					},
+					win_options = {
+						winblend = 10, -- transparencia (opcional)
+					},
+				},
+			},
+			popupmenu = {
+				enabled = true,
+				backend = "nui",
+			},
+			messages = {
+				enabled = true,
+				view = "notify", -- usa nvim-notify para mostrar mensajes
+			},
+			notify = {
+				enabled = true,
+			},
+		})
+	end,
+}
