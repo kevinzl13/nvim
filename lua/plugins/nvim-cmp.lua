@@ -24,7 +24,7 @@ return {
 		require("luasnip.loaders.from_vscode").lazy_load()
 
 		cmp.setup({
-            preselect = cmp.PreselectMode.Item,
+			preselect = cmp.PreselectMode.Item,
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
@@ -136,31 +136,14 @@ return {
 			},
 			completion = {
 				completeopt = "menu,menuone,noselect",
-                keyword_length = 1, -- por defecto 2
-                debounce = 75, -- en ms, por defecto suele ser 100-200
+				keyword_length = 1, -- por defecto 2
+				debounce = 75, -- en ms, por defecto suele ser 100-200
 			},
 		})
 
 		-- Integración con autopairs
 		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-
-		-- Cmdline para `/` y `:`
-		cmp.setup.cmdline("/", {
-			mapping = cmp.mapping.preset.cmdline(),
-			sources = {
-				{ name = "buffer" },
-			},
-		})
-
-		cmp.setup.cmdline(":", {
-			mapping = cmp.mapping.preset.cmdline(),
-			sources = cmp.config.sources({
-				{ name = "path" },
-			}, {
-				{ name = "cmdline" },
-			}),
-		})
 
 		-- Íconos personalizados
 		lspkind.init({
@@ -194,4 +177,3 @@ return {
 		})
 	end,
 }
-
