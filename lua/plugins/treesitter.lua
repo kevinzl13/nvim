@@ -19,20 +19,19 @@ local base_languages = {
 }
 
 return {
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = {
+	"nvim-treesitter/nvim-treesitter",
+	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 	},
-    build = ":TSUpdate",
-    opts = {
-        ensure_installed = base_languages,
-        sync_install = false,
-        highlight = {
-              enable = true,
-              additional_vim_regex_highlighting = false, -- o true si necesitas que convivan
-        },
-        indent = { enable = true },
-        textobjects = {
+	build = ":TSUpdate",
+	opts = {
+		ensure_installed = base_languages,
+		highlight = {
+			enable = true,
+			disable = { "rust" }, -- desactiva solo en ciertos lenguajes
+		},
+		indent = { enable = true },
+		textobjects = {
 			select = {
 				enable = true,
 				lookahead = true,
@@ -49,7 +48,5 @@ return {
 				},
 			},
 		},
-    }
+	},
 }
-
-

@@ -1,0 +1,12 @@
+{
+  "Print Debug": {
+    "prefix": "pd",
+    "body": ["print(f\"DEBUG: {${1:var}=}\")"],
+    "description": "Imprime variable para debug"
+  },
+  "Main Function": {
+    "prefix": "main",
+    "body": ["if __name__ == \"__main__\":", "    ${1:main}()"],
+    "description": "Snippet para if __name__ == '__main__'"
+  }
+}
