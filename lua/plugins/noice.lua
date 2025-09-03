@@ -23,7 +23,7 @@ return {
 				},
 			},
 			presets = {
-				bottom_search = true, -- línea de búsqueda abajo
+				bottom_search = false, -- línea de búsqueda abajo
 				command_palette = true, -- cmdline como paleta de comandos
 				long_message_to_split = true, -- divide mensajes largos
 				inc_rename = false,
@@ -33,6 +33,28 @@ return {
 				enabled = true,
 				view = "cmdline_popup",
 				opts = {},
+				format = {
+					search_down = {
+						view = "cmdline_popup", -- popup para /
+						kind = "search",
+						opts = {
+							position = { row = 5, col = "50%" },
+							size = { width = 60, height = "auto" },
+							border = { style = "rounded" },
+							win_options = { winblend = 10 },
+						},
+					},
+					search_up = {
+						view = "cmdline_popup", -- popup para ?
+						kind = "search",
+						opts = {
+							position = { row = 5, col = "50%" },
+							size = { width = 60, height = "auto" },
+							border = { style = "rounded" },
+							win_options = { winblend = 10 },
+						},
+					},
+				},
 			},
 			views = {
 				cmdline_popup = {
