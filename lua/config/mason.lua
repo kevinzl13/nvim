@@ -1,7 +1,7 @@
 return {
 	ensure_installed = {
 		"lua-language-server",
-		"pyright",
+		"basedpyright",
 		"stylua",
 		"typescript-language-server",
 		"rust-analyzer",

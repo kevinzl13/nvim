@@ -63,49 +63,64 @@ local function on_attach(client, bufnr)
 	vim.keymap.set({ "n", "i" }, "<A-S-f>", function()
 		require("conform").format({ async = true, lsp_fallback = true })
 	end, opts)
-
-	-- Inlay Hints
-	if vim.lsp.inlay_hint and vim.lsp.inlay_hint.enable then
-		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-		vim.keymap.set("n", "<leader>uh", function()
-			local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
-			vim.lsp.inlay_hint.enable(not enabled, { bufnr = bufnr })
-		end, opts)
-	end
 end
 
 --- Config Lsp
 -- Lua
 lspconfig.lua_ls.setup({
+	cmd = { "lua-language-server" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { "lua" },
 	single_file_support = true,
 	settings = {
 		Lua = {
-			telemetry = { enable = false },
-			workspace = { checkThirdParty = false },
-			hint = { enable = true },
+			telemetry = {
+				enable = false,
+			},
+			workspace = {
+				checkThirdParty = false,
+			},
+			hint = {
+				enable = true,
+				setType = true,
+				paramType = true,
+				paramName = "All", -- "All" | "Disable" | "Literal"
+				semicolon = "All", -- "All" | "SameLine" | "Disable"
+				arrayIndex = "All", -- "All" | "Enable" | "Auto" | "Disable"
+			},
 		},
 	},
-	root_dir = util.root_pattern(".luarc.json", ".git"),
+	root_dir = util.root_pattern(
+		".luarc.json",
+		".luarc.jsonc",
+		".luacheckrc",
+		".stylua.toml",
+		"stylua.toml",
+		"selene.toml",
+		"selene.yml",
+		".git"
+	),
 })
 
 -- Python
-lspconfig.pyright.setup({
+lspconfig.basedpyright.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { "python" },
 	single_file_support = true,
 	settings = {
-		python = {
+		basedpyright = {
 			analysis = {
 				autoSearchPaths = true,
 				diagnosticMode = "openFilesOnly",
 				useLibraryCodeForTypes = true,
 				inlayHints = {
-					variableTypes = true,
 					functionReturnTypes = true,
+					variableTypes = true,
+					parameterNames = true,
+					callArgumentNames = true,
+					genericTypes = true,
 				},
 			},
 		},
@@ -160,8 +175,16 @@ lspconfig.rust_analyzer.setup({
 			formatting = { enable = true },
 			inlayHints = {
 				enable = true,
+				bindingModeHints = { enable = false },
+				chainingHints = { enable = true },
+				closingBraceHints = { enable = true, minLines = 25 },
+				closureReturnTypeHints = { enable = "never" },
+				lifetimeElisionHints = { enable = "never", useParameterNames = false },
+				maxLength = 25,
 				parameterHints = { enable = true },
-				typeHints = { enable = true },
+				reborrowHints = { enable = "never" },
+				renderColons = true,
+				typeHints = { enable = true, hideClosureInitialization = false, hideNamedConstructor = false },
 			},
 		},
 	},
@@ -174,6 +197,21 @@ lspconfig.clangd.setup({
 	on_attach = on_attach,
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 	single_file_support = true,
+	cmd = {
+		"clangd",
+		"--background-index",
+		"--clang-tidy",
+		"--header-insertion=iwyu",
+		"--completion-style=detailed",
+		"--function-arg-placeholders",
+		"--fallback-style=llvm",
+		"--inlay-hints", -- Habilitar inlay hints explícitamente
+	},
+	init_options = {
+		usePlaceholders = true,
+		completeUnimported = true,
+		clangdFileStatus = true,
+	},
 	root_dir = util.root_pattern(
 		".clangd",
 		".clang-tidy",
