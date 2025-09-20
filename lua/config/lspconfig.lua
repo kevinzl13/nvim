@@ -105,6 +105,7 @@ lspconfig.lua_ls.setup({
 
 -- Python
 lspconfig.basedpyright.setup({
+	cmd = { "basedpyright-langserver", "--stdio" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { "python" },
@@ -125,7 +126,15 @@ lspconfig.basedpyright.setup({
 			},
 		},
 	},
-	root_dir = util.root_pattern("pyproject.toml", "requirements.txt", ".git"),
+	root_dir = util.root_pattern(
+		"pyproject.toml",
+		"setup.py",
+		"setup.cfg",
+		"requirements.txt",
+		"Pipfile",
+		"pyrightconfig.json",
+		".git"
+	),
 })
 
 -- Go
