@@ -104,6 +104,40 @@ lspconfig.lua_ls.setup({
 })
 
 -- Python
+
+-- lspconfig.pyright.setup({
+-- 	cmd = { "pyright-langserver", "--stdio" },
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- 	filetypes = { "python" },
+-- 	single_file_support = true,
+-- 	settings = {
+-- 		python = {
+-- 			analysis = {
+-- 				autoSearchPaths = true,
+-- 				diagnosticMode = "openFilesOnly",
+-- 				useLibraryCodeForTypes = true,
+-- 				inlayHints = {
+-- 					functionReturnTypes = true,
+-- 					variableTypes = true,
+-- 					parameterNames = true,
+-- 					callArgumentNames = true,
+-- 					genericTypes = true,
+-- 				},
+-- 			},
+-- 		},
+-- 	},
+-- 	root_dir = util.root_pattern(
+-- 		"pyproject.toml",
+-- 		"setup.py",
+-- 		"setup.cfg",
+-- 		"requirements.txt",
+-- 		"Pipfile",
+-- 		"pyrightconfig.json",
+-- 		".git"
+-- 	),
+-- })
+
 lspconfig.basedpyright.setup({
 	cmd = { "basedpyright-langserver", "--stdio" },
 	capabilities = capabilities,
