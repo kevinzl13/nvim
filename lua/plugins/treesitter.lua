@@ -16,14 +16,17 @@ local base_languages = {
 	"toml",
 	"html",
 	"css",
+	"cmake",
 }
 
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "master",
+	lazy = false,
+	build = ":TSUpdate",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 	},
-	build = ":TSUpdate",
 	opts = {
 		ensure_installed = base_languages,
 		highlight = {
@@ -32,6 +35,23 @@ return {
 		},
 		-- indent = { enable = true },
 		indent = { enable = false },
+		-- instala los parsers de forma secuencial (uno por uno)
+		sync_install = true,
+		-- no instales automáticamente al abrir un buffer
+		auto_install = false,
+		-- ignorar parsers concretos
+		ignore_install = {},
+
+		-- también desactiva en archivos grandes
+		disable = function(lang, buf)
+			local max_filesize = 100 * 1024 -- 100 KB
+			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+			if ok and stats and stats.size > max_filesize then
+				return true
+			end
+		end,
+		-- evita ejecutar highlight clásico de Vim en paralelo
+		additional_vim_regex_highlighting = false,
 		textobjects = {
 			select = {
 				enable = true,
