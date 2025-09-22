@@ -27,10 +27,11 @@ return {
 	opts = {
 		ensure_installed = base_languages,
 		highlight = {
-			enable = true,
-			disable = { "rust" }, -- desactiva solo en ciertos lenguajes
+			enable = false,
+			-- disable = { "rust" }, -- desactiva solo en ciertos lenguajes
 		},
-		indent = { enable = true },
+		-- indent = { enable = true },
+		indent = { enable = false },
 		textobjects = {
 			select = {
 				enable = true,
