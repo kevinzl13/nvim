@@ -40,7 +40,6 @@ vim.keymap.set("x", "<CR>", ":<C-u>normal! gv<CR><Esc>", opts)
 -- NvimTree
 -- ====================================
 vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
-
 -- ====================================
 -- ToggleTerm
 -- ====================================
@@ -53,26 +52,6 @@ vim.keymap.set("t", "<C-q>", [[<C-\><C-n>]], opts)
 -- ====================================
 -- Inlay Hints
 -- ====================================
--- vim.api.nvim_create_autocmd("LspAttach", {
--- 	callback = function(args)
--- 		local bufnr = args.buf
--- 		local client = vim.lsp.get_client_by_id(args.data.client_id)
---
--- 		-- Activar hints automáticamente con retardo para Pyright
--- 		if vim.lsp.inlay_hint and vim.lsp.inlay_hint.enable then
--- 			vim.defer_fn(function()
--- 				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
--- 			end, 100)
--- 		end
---
--- 		-- Toggle de inlay hints
--- 		vim.keymap.set("n", "<leader>uh", function()
--- 			local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
--- 			vim.lsp.inlay_hint.enable(not enabled, { bufnr = bufnr })
--- 		end, { buffer = bufnr, desc = "Toggle Inlay Hints" })
--- 	end,
--- })
-
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("InlayHintsToggle", {}),
 	callback = function(ev)

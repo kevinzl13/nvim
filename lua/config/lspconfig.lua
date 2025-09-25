@@ -146,12 +146,12 @@ lspconfig.rust_analyzer.setup({
 			cargo = {
 				allFeatures = true,
 				loadOutDirsFromCheck = true,
-				runBuildScripts = false,
-				buildScripts = { enable = false },
+				runBuildScripts = true,
+				buildScripts = { enable = true },
 			},
 			checkOnSave = true,
 			checkOnSaveCommand = "clippy",
-			procMacro = { enable = false },
+			procMacro = { enable = true },
 			files = { exclude = { "target/**" } },
 			formatting = { enable = true },
 			inlayHints = {
