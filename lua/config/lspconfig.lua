@@ -137,7 +137,6 @@ lspconfig.gopls.setup({
 
 -- Rust
 lspconfig.rust_analyzer.setup({
-	cmd = { "rust-analyzer" },
 	capabilities = capabilities,
 	on_attach = on_attach_inlay,
 	filetypes = { "rust" },
