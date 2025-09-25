@@ -137,6 +137,7 @@ lspconfig.gopls.setup({
 
 -- Rust
 lspconfig.rust_analyzer.setup({
+	cmd = { "rust-analyzer" },
 	capabilities = capabilities,
 	on_attach = on_attach_inlay,
 	filetypes = { "rust" },
@@ -146,8 +147,8 @@ lspconfig.rust_analyzer.setup({
 			cargo = {
 				allFeatures = true,
 				loadOutDirsFromCheck = true,
-				runBuildScripts = true,
-				buildScripts = { enable = true },
+				runBuildScripts = false,
+				buildScripts = { enable = false },
 			},
 			checkOnSave = true,
 			checkOnSaveCommand = "clippy",
