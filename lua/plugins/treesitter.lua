@@ -30,11 +30,9 @@ return {
 	opts = {
 		ensure_installed = base_languages,
 		highlight = {
-			enable = false,
-			-- disable = { "rust" }, -- desactiva solo en ciertos lenguajes
+			enable = true,
 		},
 		-- indent = { enable = true },
-		indent = { enable = false },
 		-- instala los parsers de forma secuencial (uno por uno)
 		sync_install = true,
 		-- no instales automáticamente al abrir un buffer
@@ -43,13 +41,14 @@ return {
 		ignore_install = {},
 
 		-- también desactiva en archivos grandes
-		disable = function(lang, buf)
-			local max_filesize = 100 * 1024 -- 100 KB
-			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-			if ok and stats and stats.size > max_filesize then
-				return true
-			end
-		end,
+		-- disable = function(lang, buf)
+		-- 	local max_filesize = 100 * 1024 -- 100 KB
+		-- 	local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+		-- 	if ok and stats and stats.size > max_filesize then
+		-- 		return true
+		-- 	end
+		-- end,
+
 		-- evita ejecutar highlight clásico de Vim en paralelo
 		additional_vim_regex_highlighting = false,
 		textobjects = {
