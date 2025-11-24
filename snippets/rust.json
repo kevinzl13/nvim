@@ -1,0 +1,17 @@
+{
+	"Print Debug": {
+		"prefix": "pd",
+		"body": ["dbg!($1);"],
+		"description": "Macro dbg! para debug"
+	},
+	"Derive Debug": {
+		"prefix": "ded",
+		"body": ["#[derive(Debug)]", "struct $1 {", "    $2", "}"],
+		"description": "Añade Debug automáticamente sobre el struct"
+	},
+	"Implementacion a un struct": {
+		"prefix": "imp",
+		"body": ["impl $1 for $2 {", "    $3", "}"],
+		"description": "Añade una implementacion para un struct"
+	}
+}
