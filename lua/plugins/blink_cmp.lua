@@ -1,6 +1,19 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
+	dependencies = {
+		{
+			"L3MON4D3/LuaSnip",
+			version = "v2.*",
+			build = "make install_jsregexp",
+			config = function()
+				require("luasnip.loaders.from_vscode").load({
+					paths = "./snippets",
+					reload = true,
+				})
+			end,
+		},
+		"moyiz/blink-emoji.nvim",
+	},
 	version = "1.*",
 	opts = {
 		keymap = {
@@ -46,11 +59,17 @@ return {
 			},
 			ghost_text = { enabled = true },
 		},
-
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "snippets", "buffer", "emoji" },
+			providers = {
+				emoji = {
+					module = "blink-emoji",
+					name = "Emoji",
+					score_offset = 15, -- Tune by preference
+					opts = { insert = true }, -- Insert emoji (default) or complete its name
+				},
+			},
 		},
-
 		fuzzy = {
 			implementation = "lua",
 		},
