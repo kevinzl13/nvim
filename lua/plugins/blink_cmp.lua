@@ -35,16 +35,12 @@ return {
 			["<C-b>"] = { "scroll_documentation_up", "fallback" },
 			["<C-f>"] = { "scroll_documentation_down", "fallback" },
 			["<C-n>"] = { "show", "show_documentation", "hide_documentation" },
-			["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
-			["<C-u>"] = { "scroll_signature_up", "fallback" },
-			["<C-d>"] = { "scroll_signature_down", "fallback" },
 		},
 		appearance = {
 			nerd_font_variant = "mono",
 		},
 		completion = {
 			documentation = { auto_show = true },
-			signature = { enabled = true },
 			trigger = {
 				show_on_keyword = true,
 				show_on_trigger_character = true,
@@ -58,6 +54,9 @@ return {
 				},
 			},
 			ghost_text = { enabled = true },
+		},
+		signature = {
+			enabled = false,
 		},
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer", "emoji" },

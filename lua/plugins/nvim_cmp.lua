@@ -17,10 +17,6 @@ return {
 	-- 	local luasnip = require("luasnip")
 	-- 	local lspkind = require("lspkind")
 	--
-	-- 	-- Cargar highlights personalizados
-	-- 	local highlights = require("config.menu_cmp")
-	-- 	highlights.setup_cmp_highlights()
-	--
 	-- 	require("luasnip.loaders.from_vscode").lazy_load()
 	--
 	-- 	cmp.setup({
@@ -109,10 +105,10 @@ return {
 	-- 				mode = "symbol_text",
 	-- 				preset = "default",
 	-- 				menu = {
-	-- 					buffer = "[Buffer]",
 	-- 					nvim_lsp = "[LSP]",
-	-- 					luasnip = "[Snip]",
 	-- 					path = "[Path]",
+	-- 					luasnip = "[Snip]",
+	-- 					buffer = "[Buffer]",
 	-- 				},
 	-- 				before = function(entry, vim_item)
 	-- 					local icon = lspkind.symbol_map[vim_item.kind] or ""

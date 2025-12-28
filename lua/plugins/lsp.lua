@@ -42,11 +42,6 @@ return {
 		-- ===========================
 		-- Inlay hints globales
 		-- ===========================
-		-- function _G.on_attach_inlay(client, bufnr)
-		-- 	if client.server_capabilities.inlayHintsProvider then
-		-- 		vim.lsp.inlay_hint.enable(true, { buf = bufnr })
-		-- 	end
-		-- end
 		local function on_attach(client, bufnr)
 			if client.server_capabilities.inlayHintsProvider then
 				vim.lsp.inlay_hint.enable(true, { buf = bufnr })
@@ -57,7 +52,7 @@ return {
 
 		vim.lsp.enable({
 			"lua_ls",
-			"basedpyright",
+			"pyright",
 			"gopls",
 			"rust_analyzer",
 			"clangd",
