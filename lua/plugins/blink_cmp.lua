@@ -3,12 +3,12 @@ return {
 	dependencies = {
 		{
 			"L3MON4D3/LuaSnip",
-			version = "v2.*",
+			version = "1.*",
 			build = "make install_jsregexp",
 			config = function()
 				require("luasnip.loaders.from_vscode").load({
 					paths = "./snippets",
-					reload = true,
+					reload = false,
 				})
 			end,
 		},
@@ -42,18 +42,18 @@ return {
 		completion = {
 			documentation = { auto_show = true },
 			trigger = {
-				show_on_keyword = true,
+				show_on_keyword = false,
 				show_on_trigger_character = true,
-				show_on_insert_on_trigger_character = true,
-				show_on_accept_on_trigger_character = true,
+				show_on_insert_on_trigger_character = false,
+				show_on_accept_on_trigger_character = false,
 			},
 			list = {
 				selection = {
 					preselect = true,
-					auto_insert = true,
+					auto_insert = false,
 				},
 			},
-			ghost_text = { enabled = true },
+			ghost_text = { enabled = false },
 		},
 		signature = {
 			enabled = false,
@@ -61,6 +61,9 @@ return {
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer", "emoji" },
 			providers = {
+				lsp = {
+					score_offset = 1000,
+				},
 				emoji = {
 					module = "blink-emoji",
 					name = "Emoji",
@@ -70,7 +73,7 @@ return {
 			},
 		},
 		fuzzy = {
-			implementation = "lua",
+			implementation = "prefer_rust",
 		},
 	},
 	opts_extend = { "sources.default" },
