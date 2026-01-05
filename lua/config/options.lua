@@ -19,8 +19,10 @@ opt.smartcase = true
 -- Indentación
 opt.autoindent = true
 opt.smartindent = true
-opt.expandtab = true
 opt.smarttab = true
+opt.expandtab = true
+opt.copyindent = true
+opt.preserveindent = true
 
 -- Tabulaciones
 opt.shiftwidth = 4
@@ -37,7 +39,7 @@ opt.errorbells = false
 opt.swapfile = false
 opt.signcolumn = "yes"
 opt.mouse = "a"
-opt.backspace = "indent,eol,start"
+opt.backspace = { "start", "eol", "indent" }
 
 -- Portapapeles
 opt.clipboard = "unnamedplus"
@@ -58,5 +60,3 @@ opt.splitright = true -- Dividir ventanas a la derecha
 opt.splitbelow = true -- Dividir ventanas abajo
 
 opt.shadafile = "NONE"
-
-

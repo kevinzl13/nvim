@@ -21,6 +21,31 @@ return {
 					["vim.lsp.util.stylize_markdown"] = true,
 					["cmp.entry.get_documentation"] = true,
 				},
+				progress = {
+					enabled = true,
+					format = {
+						"{spinner} {title}",
+					},
+				},
+			},
+			routes = {
+				{
+					filter = {
+						event = "lsp",
+						kind = "progress",
+					},
+					view = "mini",
+					opts = {
+						replace = true,
+						transform = function(message)
+							-- texto corto fijo
+							message.title = "Cargando"
+							message.message = ""
+							message.percentage = nil
+							return message
+						end,
+					},
+				},
 			},
 			presets = {
 				bottom_search = false, -- línea de búsqueda abajo
