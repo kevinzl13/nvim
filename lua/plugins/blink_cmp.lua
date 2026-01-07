@@ -49,7 +49,7 @@ return {
 			enabled = false,
 		},
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer", "emoji" },
+			default = { "lsp", "path", "snippets", "emoji" },
 			providers = {
 				lsp = {
 					score_offset = 1000,
