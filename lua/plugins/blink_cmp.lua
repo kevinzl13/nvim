@@ -1,17 +1,7 @@
 return {
 	"saghen/blink.cmp",
 	dependencies = {
-		{
-			"L3MON4D3/LuaSnip",
-			version = "1.*",
-			build = "make install_jsregexp",
-			config = function()
-				require("luasnip.loaders.from_vscode").load({
-					paths = "./snippets",
-					reload = false,
-				})
-			end,
-		},
+		"L3MON4D3/LuaSnip",
 		"moyiz/blink-emoji.nvim",
 	},
 	version = "1.*",
