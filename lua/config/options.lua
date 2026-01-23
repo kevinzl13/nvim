@@ -11,6 +11,8 @@ opt.scrolloff = 8
 
 -- No plegar lineas
 opt.foldenable = false
+opt.foldmethod = "syntax"
+opt.foldlevelstart = 99
 
 -- Búsqueda
 opt.hlsearch = true
