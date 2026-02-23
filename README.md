@@ -215,7 +215,7 @@ css, cmake
 
 ---
 
-# 🧠 Atajos Nativos de Neovim (Corregidos y Organizados)
+# 🧠 Atajos Nativos de Neovim
 
 ## 🔢 Manejo de Números
 
@@ -240,22 +240,26 @@ Ejemplo:
 En modo normal:
 
 ```
-numero + o
+numero de lineas + o + numero que empieza + Esc
 ```
 
 Ejemplo:
 
 ```
-1o
+5 + o + 1 + Esc
 ```
 
 Luego:
 
 ```
-numero + .
+numero de lineas + o + numero que empieza + . + Esc lista numerada
 ```
 
-Para repetir la estructura.
+Ejemplo:
+
+```
+1.
+```
 
 ---
 
@@ -339,20 +343,21 @@ hola mundo
 
 ## 📍 Navegación
 
-| Atajo     | Acción                            |
-| --------- | --------------------------------- |
-| `:numero` | Ir a línea específica             |
-| `%`       | Saltar entre paréntesis/corchetes |
-| `{` `}`   | Saltar entre bloques o párrafos   |
+| Atajo     | Acción                  |
+| --------- | ----------------------- |
+| `:numero` | Ir a línea específica   |
+| `{}%`     | Saltar entre paréntesis |
+| `()%`     | Saltar entre corchetes  |
+| `[]%`     | Saltar entre llaves     |
 
 ---
 
 ## 🔗 Unir Líneas
 
-| Atajo | Acción                             |
-| ----- | ---------------------------------- |
-| `J`   | Unir línea actual con la siguiente |
-| `5J`  | Unir 5 líneas consecutivas         |
+| Atajo        | Acción                             |
+| ------------ | ---------------------------------- |
+| `Select + J` | Unir línea actual con la siguiente |
+| `numero + J` | Unir numero de líneas consecutivas |
 
 ---
 
