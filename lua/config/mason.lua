@@ -23,6 +23,9 @@ return {
 		"flake8",
 		"cpplint",
 		"golangci-lint",
+		"bashls",
+		"docker_compose_language_service",
+		"docker_language_server",
 	},
 	max_concurrent_installers = 1,
 }

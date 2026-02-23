@@ -60,6 +60,9 @@ return {
 			"html",
 			"cssls",
 			"cmake",
+			"bashls",
+			"docker_compose_language_service",
+			"docker_language_server",
 		}, {
 			on_attach = on_attach,
 			capabilities = capabilities,
