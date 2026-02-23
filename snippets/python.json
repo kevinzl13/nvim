@@ -1,0 +1,19 @@
+{
+	"Print Debug": {
+		"prefix": "pd",
+		"body": ["print(f\"DEBUG: {${1:var}=}\")"],
+		"description": "Imprime variable para debug"
+	},
+	"Main Function": {
+		"prefix": "main",
+		"body": [
+			"def ${1:main}():",
+			"    ${2:pass}",
+			"",
+			"",
+			"if __name__ == \"__main__\":",
+			"    ${1}()"
+		],
+		"description": "Define main y bloque if __name__"
+	}
+}

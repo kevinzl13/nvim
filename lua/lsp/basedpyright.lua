@@ -1,0 +1,34 @@
+-- vim.lsp.config("basedpyright", {
+-- 	cmd = { "basedpyright-langserver", "--stdio" },
+-- 	filetypes = { "python" },
+-- 	root_markers = {
+-- 		"pyrightconfig.json",
+-- 		"pyproject.toml",
+-- 		"setup.py",
+-- 		"setup.cfg",
+-- 		"requirements.txt",
+-- 		"Pipfile",
+-- 		".git",
+-- 	},
+-- 	settings = {
+-- 		basedpyright = {
+-- 			analysis = {
+-- 				autoSearchPaths = true,
+-- 				diagnosticMode = "openFilesOnly",
+-- 				useLibraryCodeForTypes = true,
+-- 				typeCheckingMode = "standard",
+-- 				-- opciones
+-- 				-- "basic"
+-- 				-- "standard"
+-- 				-- "strict"
+-- 				inlayHints = {
+-- 					functionReturnTypes = true,
+-- 					variableTypes = true,
+-- 					parameterNames = true,
+-- 					callArgumentNames = true,
+-- 					genericTypes = true,
+-- 				},
+-- 			},
+-- 		},
+-- 	},
+-- })
