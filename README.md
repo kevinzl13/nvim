@@ -48,18 +48,23 @@ Leader: <Space>
 
 ---
 
-# 🌳 Neo-tree
+# 🌳 Oil Explorer — oil.nvim
 
-| Atajo       | Acción          |
-| ----------- | --------------- |
-| `<leader>e` | Toggle Neo-tree |
-
-### Configuración
-
-- Muestra archivos ocultos
-- No oculta archivos ignorados por git
-- Usa watcher con libuv
-- Iconos personalizados para carpetas
+| Atajo       | Acción                                    |
+| ----------- | ----------------------------------------- |
+| `<leader>e` | Toggle Oil Explorer (abrir/cerrar en cwd) |
+| `<CR>`      | Abrir archivo / entrar en directorio      |
+| `sv`        | Abrir en split vertical                   |
+| `sh`        | Abrir en split horizontal                 |
+| `st`        | Abrir en nueva pestaña                    |
+| `-`         | Ir al directorio padre                    |
+| `<BS>`      | Subir al directorio padre                 |
+| `g.`        | Mostrar / ocultar archivos ocultos        |
+| `gs`        | Cambiar método de ordenamiento            |
+| `gx`        | Abrir con aplicación externa              |
+| `q`         | Cerrar Oil                                |
+| `<C-q>`     | Cerrar Oil                                |
+| `<C-l>`     | Refrescar vista                           |
 
 ---
 
