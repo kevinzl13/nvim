@@ -39,8 +39,8 @@ vim.keymap.set("x", "<CR>", ":<C-u>normal! gv<CR><Esc>", opts)
 -- ====================================
 -- NvimTree
 -- ====================================
--- vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
-vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", opts)
+-- vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", opts)
+
 -- ====================================
 -- ToggleTerm
 -- ====================================
@@ -54,13 +54,13 @@ vim.keymap.set("t", "<C-q>", [[<C-\><C-n>]], opts)
 -- Inlay Hints
 -- ====================================
 vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("InlayHintsToggle", {}),
-    callback = function(ev)
-        vim.keymap.set("n", "<leader>uh", function()
-            local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf })
-            vim.lsp.inlay_hint.enable(not enabled, { bufnr = ev.buf })
-        end, { desc = "Alternar Inlay Hints", buffer = ev.buf })
-    end,
+	group = vim.api.nvim_create_augroup("InlayHintsToggle", {}),
+	callback = function(ev)
+		vim.keymap.set("n", "<leader>uh", function()
+			local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf })
+			vim.lsp.inlay_hint.enable(not enabled, { bufnr = ev.buf })
+		end, { desc = "Alternar Inlay Hints", buffer = ev.buf })
+	end,
 })
 
 -- ====================================
@@ -68,37 +68,36 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- ====================================
 --
 vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("UserLspKeymaps", {}),
-    callback = function(ev)
-        local opts = { buffer = ev.buf }
-        -- Keymaps
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set({ "i", "n" }, "<A-,>", vim.lsp.buf.signature_help, opts)
-        vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
+	group = vim.api.nvim_create_augroup("UserLspKeymaps", {}),
+	callback = function(ev)
+		local opts = { buffer = ev.buf }
+		-- Keymaps
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+		vim.keymap.set({ "i", "n" }, "<A-,>", vim.lsp.buf.signature_help, opts)
+		vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
 
-        -- Luasnip navegación
-        vim.keymap.set({ "i", "s" }, "<C-A-k>", function()
-            local luasnip = require("luasnip")
-            if luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-            end
-        end, opts)
+		-- Luasnip navegación
+		vim.keymap.set({ "i", "s" }, "<C-A-k>", function()
+			local luasnip = require("luasnip")
+			if luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			end
+		end, opts)
 
-        vim.keymap.set({ "i", "s" }, "<C-A-j>", function()
-            local luasnip = require("luasnip")
-            if luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            end
-        end, opts)
+		vim.keymap.set({ "i", "s" }, "<C-A-j>", function()
+			local luasnip = require("luasnip")
+			if luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			end
+		end, opts)
 
-        -- Formateo
-        vim.keymap.set({ "n", "i" }, "<A-S-f>", function()
-            require("conform").format({ async = true, lsp_fallback = true })
-        end, opts)
-    end,
+		-- Formateo
+		vim.keymap.set({ "n", "i" }, "<A-S-f>", function()
+			require("conform").format({ async = true, lsp_fallback = true })
+		end, opts)
+	end,
 })
-
