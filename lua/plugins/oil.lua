@@ -8,13 +8,13 @@ return {
 				"<leader>e",
 				function()
 					local oil = require("oil")
-					if vim.bo.filetype == "oil" then
+					if require("oil").get_current_dir() then
 						oil.close()
 					else
-						oil.open(vim.fn.getcwd())
+						oil.open_float()
 					end
 				end,
-				desc = "Toggle Oil Explorer",
+				desc = "Toggle Oil Float",
 			},
 		},
 		config = function()
