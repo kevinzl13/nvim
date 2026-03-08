@@ -18,3 +18,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 	end,
 })
+
+-- borrar buffer no name
+vim.api.nvim_create_autocmd("BufEnter", {
+	callback = function()
+		local bufname = vim.api.nvim_buf_get_name(0)
+		local bufs = vim.api.nvim_list_bufs()
+
+		if bufname ~= "" then
+			for _, buf in ipairs(bufs) do
+				if vim.api.nvim_buf_is_loaded(buf) then
+					local name = vim.api.nvim_buf_get_name(buf)
+					if name == "" and vim.api.nvim_buf_get_option(buf, "buftype") == "" then
+						vim.schedule(function()
+							require("bufdelete").bufdelete(buf, true)
+						end)
+					end
+				end
+			end
+		end
+	end,
+})

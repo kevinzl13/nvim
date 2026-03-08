@@ -37,10 +37,11 @@ vim.keymap.set("x", "<", "<gv", opts)
 vim.keymap.set("x", "<CR>", ":<C-u>normal! gv<CR><Esc>", opts)
 
 -- ====================================
--- NvimTree
+-- Oil
 -- ====================================
--- vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", opts)
-
+vim.keymap.set("n", "<leader>e", function()
+	require("oil").toggle_float()
+end, { desc = "Toggle Oil Float" }, opts)
 -- ====================================
 -- ToggleTerm
 -- ====================================

@@ -3,20 +3,6 @@ return {
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		cmd = "Oil",
-		keys = {
-			{
-				"<leader>e",
-				function()
-					local oil = require("oil")
-					if require("oil").get_current_dir() then
-						oil.close()
-					else
-						oil.open_float()
-					end
-				end,
-				desc = "Toggle Oil Float",
-			},
-		},
 		config = function()
 			require("oil").setup({
 				default_file_explorer = true,
@@ -39,12 +25,13 @@ return {
 				watch_for_changes = true,
 
 				keymaps = {
+					["g?"] = { "actions.show_help", mode = "n" },
 					["<CR>"] = "actions.select",
 					["sv"] = { "actions.select", opts = { vertical = true } },
 					["sh"] = { "actions.select", opts = { horizontal = true } },
 					["st"] = { "actions.select", opts = { tab = true } },
-
 					["-"] = { "actions.parent", mode = "n" },
+					["_"] = { "actions.open_cwd", mode = "n" },
 					["<BS>"] = { "actions.parent", mode = "n" }, -- Backspace para subir
 					["g."] = { "actions.toggle_hidden", mode = "n" },
 					["gs"] = { "actions.change_sort", mode = "n" },
