@@ -1,0 +1,12 @@
+{
+	"Print Table": {
+		"prefix": "pt",
+		"body": ["print(vim.inspect($1))"],
+		"description": "Imprime tabla en Lua con vim.inspect"
+	},
+	"Require Module": {
+		"prefix": "req",
+		"body": ["local ${1:mod} = require(\"${1:mod}\")"],
+		"description": "Snippet para require en Lua"
+	}
+}
