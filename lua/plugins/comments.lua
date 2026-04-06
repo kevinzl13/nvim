@@ -2,8 +2,6 @@ return {
 	"numToStr/Comment.nvim",
 	event = "VeryLazy",
 	config = function()
-		local keymaps = require("config.keymaps")
-
 		require("Comment").setup({
 			toggler = {
 				line = "gcc",
@@ -21,4 +19,3 @@ return {
 		})
 	end,
 }
-
