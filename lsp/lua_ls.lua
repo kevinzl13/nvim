@@ -1,4 +1,5 @@
-vim.lsp.config("lua_ls", {
+---@type vim.lsp.Config
+return {
 	cmd = { "lua-language-server" },
 	filetypes = { "lua" },
 	root_markers = {
@@ -14,13 +15,18 @@ vim.lsp.config("lua_ls", {
 	},
 	settings = {
 		Lua = {
+			runtime = {
+				version = "LuaJIT",
+			},
 			telemetry = { enable = false },
-			workspace = { checkThirdParty = false },
-			codeLens = {
-				enable = true,
+			workspace = {
+				checkThirdParty = false,
 			},
 			diagnostics = {
 				globals = { "vim" },
+			},
+			codeLens = {
+				enable = true,
 			},
 			hint = {
 				enable = true,
@@ -32,4 +38,4 @@ vim.lsp.config("lua_ls", {
 			},
 		},
 	},
-})
+}

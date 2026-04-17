@@ -1,4 +1,6 @@
-vim.lsp.config("rust_analyzer", {
+---@type vim.lsp.Config
+
+return {
 	cmd = { "rust-analyzer" },
 	filetypes = { "rust" },
 	settings = {
@@ -28,4 +30,4 @@ vim.lsp.config("rust_analyzer", {
 			},
 		},
 	},
-})
+}

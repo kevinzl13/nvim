@@ -1,4 +1,5 @@
-vim.lsp.config("clangd", {
+---@type vim.lsp.Config
+return {
 	cmd = {
 		"clangd",
 		"--background-index",
@@ -25,4 +26,4 @@ vim.lsp.config("clangd", {
 		"configure.ac",
 		".git",
 	},
-})
+}

@@ -1,4 +1,5 @@
-vim.lsp.config("docker_language_server", {
+---@type vim.lsp.Config
+return {
 	cmd = { "docker-language-server", "start", "--stdio" },
 	filetypes = { "dockerfile", "yaml.docker-compose" },
 	root_markers = {
@@ -12,4 +13,4 @@ vim.lsp.config("docker_language_server", {
 		"docker-bake.override.json",
 		"docker-bake.override.hcl",
 	},
-})
+}

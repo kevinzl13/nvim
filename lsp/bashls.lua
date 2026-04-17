@@ -1,10 +1,11 @@
-vim.lsp.config("bashls", {
+---@type vim.lsp.Config
+return {
 	cmd = { "bash-language-server", "start" },
 	filetypes = { "bash", "sh" },
-	root_markers = { ".git" }, -- equivalente a root_dir
+	root_markers = { ".git" },
 	settings = {
 		bashIde = {
 			globPattern = "*@(.sh|.inc|.bash|.command)",
 		},
 	},
-})
+}

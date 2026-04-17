@@ -39,16 +39,9 @@ return {
 			},
 		})
 
-		-- ===========================
-		-- Inlay hints globales
-		-- ===========================
-		local function on_attach(client, bufnr)
-			if client.server_capabilities.inlayHintsProvider then
-				vim.lsp.inlay_hint.enable(true, { buf = bufnr })
-			end
-		end
-
-		local capabilities = require("blink.cmp").get_lsp_capabilities()
+		vim.lsp.config("*", {
+			capabilities = require("blink.cmp").get_lsp_capabilities(),
+		})
 
 		vim.lsp.enable({
 			"lua_ls",
@@ -66,9 +59,6 @@ return {
 			"yamlls",
 			"gh_actions_ls",
 			"jsonls",
-		}, {
-			on_attach = on_attach,
-			capabilities = capabilities,
 		})
 	end,
 }
