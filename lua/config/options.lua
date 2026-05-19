@@ -27,7 +27,7 @@ opt.smartcase = true
 
 -- Indentación
 opt.autoindent = true
-opt.smartindent = false
+opt.smartindent = true
 opt.expandtab = true
 
 -- Tabulaciones
@@ -57,4 +57,3 @@ opt.splitbelow = true -- Dividir ventanas abajo
 -- Desactivar el ShaDa
 opt.shada = ""
 opt.shadafile = "NONE"
-
