@@ -59,6 +59,7 @@ return {
 			"yamlls",
 			"gh_actions_ls",
 			"jsonls",
+			"emmet_language_server",
 		})
 	end,
 }
