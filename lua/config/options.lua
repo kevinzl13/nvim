@@ -15,10 +15,18 @@ opt.termguicolors = true
 -- fondo oscuro
 opt.background = "dark"
 
--- No plegar lineas
+-- plegar folds
 opt.foldenable = true
-opt.foldmethod = "manual"
 opt.foldlevelstart = 99
+opt.foldmethod = "manual"
+opt.foldcolumn = "3"
+
+vim.opt.fillchars = {
+	foldopen = "",
+	foldclose = "",
+	fold = "│",
+	foldsep = "│",
+}
 
 -- Búsqueda
 opt.hlsearch = true
