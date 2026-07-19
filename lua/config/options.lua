@@ -16,8 +16,8 @@ opt.termguicolors = true
 opt.background = "dark"
 
 -- No plegar lineas
-opt.foldenable = false
-opt.foldmethod = "syntax"
+opt.foldenable = true
+opt.foldmethod = "manual"
 opt.foldlevelstart = 99
 
 -- Búsqueda
