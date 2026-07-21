@@ -48,6 +48,14 @@ Leader: <Space>
 
 ---
 
+## 🎨 Cambiar Tema
+
+| Atajo       | Acción                                      |
+| ----------- | ------------------------------------------- |
+| `<leader>th` | Abrir selector de temas y cambiar colorscheme |
+
+---
+
 # 🌳 Oil Explorer — oil.nvim
 
 | Atajo       | Acción                                    |
