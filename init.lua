@@ -1,6 +1,7 @@
 require("config.options")
 require("config.keymaps")
 require("config.autocmd")
+require("config.theme_selector")
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -23,6 +24,7 @@ require("lazy").setup({
 	spec = {
 		-- import your plugins
 		{ import = "plugins" },
+		{ import = "plugins.themes" },
 	},
-	install = { colorscheme = { "catppuccin" } },
+	install = { colorscheme = { "tokyonight" } },
 })
