@@ -50,9 +50,9 @@ Leader: <Space>
 
 ## 🎨 Cambiar Tema
 
-| Atajo       | Acción                                      |
-| ----------- | ------------------------------------------- |
-| `<leader>th` | Abrir selector de temas y cambiar colorscheme |
+| Atajo        | Acción                                        |
+| ------------ | --------------------------------------------- |
+| `<leader>ts` | Abrir selector de temas y cambiar colorscheme |
 
 ---
 
