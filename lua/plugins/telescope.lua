@@ -9,6 +9,7 @@ return {
 			build = "make",
 		},
 	},
+	-- require de dependencia en el sistema de ripgrep
 	config = function()
 		local actions = require("telescope.actions")
 		local builtin = require("telescope.builtin")
@@ -28,6 +29,41 @@ return {
 						["<C-q>"] = actions.close, -- Cerrar Telescope
 					},
 				},
+				file_ignore_patterns = {
+					"node_modules/.*",
+					"dist/.*",
+					"build/.*",
+					"target/.*",
+					"venv/.*",
+					".venv/.*",
+					"__pycache__/.*",
+					"vendor/.*",
+				},
+			},
+			pickers = {
+				live_grep = {
+					additional_args = function()
+						return {
+							-- Para live_grep (evita que ripgrep escanee)
+							"--glob",
+							"!**/node_modules/*",
+							"--glob",
+							"!**/dist/*",
+							"--glob",
+							"!**/build/*",
+							"--glob",
+							"!**/target/*",
+							"--glob",
+							"!**/venv/*",
+							"--glob",
+							"!**/.venv/*",
+							"--glob",
+							"!**/__pycache__/*",
+							"--glob",
+							"!**/vendor/*",
+						}
+					end,
+				},
 			},
 			extensions = {
 				fzf = {
@@ -45,4 +81,3 @@ return {
 		require("telescope").load_extension("ui-select")
 	end,
 }
-
