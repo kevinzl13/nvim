@@ -1,0 +1,17 @@
+{
+	"Tkinter main window": {
+		"prefix": "tkmain",
+		"body": [
+			"import tkinter as tk",
+			"",
+			"root = tk.Tk()",
+			"root.title(\"$1\")",
+			"root.geometry(\"$2\")",
+			"",
+			"$0",
+			"",
+			"root.mainloop()"
+		],
+		"description": "Basic Tkinter main window"
+	}
+}
