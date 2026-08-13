@@ -103,3 +103,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, opts)
 	end,
 })
+
+-- ====================================
+-- Linked Editing
+-- ====================================
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("LinkedEditing", {}),
+	callback = function(ev)
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+		if client and client:supports_method("textDocument/linkedEditingRange") then
+			vim.lsp.linked_editing_range.enable(true, {
+				client_id = client.id,
+			})
+		end
+	end,
+})
