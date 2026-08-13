@@ -60,6 +60,7 @@ return {
 			"gh_actions_ls",
 			"jsonls",
 			"emmet_language_server",
+			"tailwindcss",
 		})
 	end,
 }

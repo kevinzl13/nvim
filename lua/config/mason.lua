@@ -27,7 +27,7 @@ return {
 		"gh-actions-language-server",
 		"yaml-language-server",
 		"yamlfmt",
+		"tailwindcss-language-server",
 	},
 	max_concurrent_installers = 1,
 }
-
