@@ -383,6 +383,102 @@ hola mundo
 | `:read ruta`     | Insertar contenido de archivo           |
 | `:read !comando` | Insertar salida de comando en el cursor |
 
+## Atajos de nvim-surround
+
+### 🎨 Modo Visual (seleccionas texto primero)
+
+## Atajos de nvim-surround
+
+### 🎨 Modo Visual (seleccionas texto primero)
+
+| Atajo | Resultado                     | Ejemplo                                        |
+| ----- | ----------------------------- | ---------------------------------------------- |
+| `S"`  | Envuelve con comillas dobles  | `hola` → `"hola"`                              |
+| `S'`  | Envuelve con comillas simples | `hola` → `'hola'`                              |
+| `S(`  | Envuelve con paréntesis       | `hola` → `(hola)`                              |
+| `S[`  | Envuelve con corchetes        | `hola` → `[hola]`                              |
+| `S{`  | Envuelve con llaves           | `hola` → `{hola}`                              |
+| `S<`  | Envuelve con mayor/menor      | `hola` → `<hola>`                              |
+| `St`  | Envuelve con etiqueta HTML    | `hola` → `<div>hola</div>` (te pide el nombre) |
+| `S=`  | Envuelve con `=` y espacios   | `hola` → `= hola =`                            |
+| `S*`  | Envuelve con `*` y espacios   | `hola` → `* hola *`                            |
+
+---
+
+### ⌨️ Modo Normal (sin seleccionar)
+
+#### Para palabras
+
+| Atajo   | Desglose               | Resultado                  | Ejemplo                    |
+| ------- | ---------------------- | -------------------------- | -------------------------- |
+| `ysiw"` | `y` + `s` + `iw` + `"` | Envuelve palabra con `"`   | `hola` → `"hola"`          |
+| `ysiw'` | `y` + `s` + `iw` + `'` | Envuelve palabra con `'`   | `hola` → `'hola'`          |
+| `ysiw(` | `y` + `s` + `iw` + `(` | Envuelve palabra con `()`  | `hola` → `(hola)`          |
+| `ysiw[` | `y` + `s` + `iw` + `[` | Envuelve palabra con `[]`  | `hola` → `[hola]`          |
+| `ysiw{` | `y` + `s` + `iw` + `{` | Envuelve palabra con `{}`  | `hola` → `{hola}`          |
+| `ysiw<` | `y` + `s` + `iw` + `<` | Envuelve palabra con `<>`  | `hola` → `<hola>`          |
+| `ysiwt` | `y` + `s` + `iw` + `t` | Envuelve con etiqueta HTML | `hola` → `<tag>hola</tag>` |
+
+#### Para palabras con puntos
+
+| Atajo   | Desglose               | Resultado                          | Ejemplo                   |
+| ------- | ---------------------- | ---------------------------------- | ------------------------- |
+| `ysiW"` | `y` + `s` + `iW` + `"` | Envuelve palabra (incluye puntos)  | `mi.texto` → `"mi.texto"` |
+| `ysiW'` | `y` + `s` + `iW` + `'` | Envuelve con `'` (incluye puntos)  | `mi.texto` → `'mi.texto'` |
+| `ysiW(` | `y` + `s` + `iW` + `(` | Envuelve con `()` (incluye puntos) | `mi.texto` → `(mi.texto)` |
+
+#### Para líneas
+
+| Atajo  | Desglose              | Resultado                        | Ejemplo                       |
+| ------ | --------------------- | -------------------------------- | ----------------------------- |
+| `yss"` | `y` + `s` + `s` + `"` | Envuelve línea completa con `"`  | `hola mundo` → `"hola mundo"` |
+| `yss'` | `y` + `s` + `s` + `'` | Envuelve línea completa con `'`  | `hola mundo` → `'hola mundo'` |
+| `yss(` | `y` + `s` + `s` + `(` | Envuelve línea completa con `()` | `hola mundo` → `(hola mundo)` |
+| `yss[` | `y` + `s` + `s` + `[` | Envuelve línea completa con `[]` | `hola mundo` → `[hola mundo]` |
+| `yss{` | `y` + `s` + `s` + `{` | Envuelve línea completa con `{}` | `hola mundo` → `{hola mundo}` |
+| `ysst` | `y` + `s` + `s` + `t` | Envuelve línea con etiqueta HTML | `hola` → `<tag>hola</tag>`    |
+
+---
+
+### 🗑️ Eliminar (Delete Surround)
+
+| Atajo | Desglose        | Resultado                | Ejemplo                    |
+| ----- | --------------- | ------------------------ | -------------------------- |
+| `ds"` | `d` + `s` + `"` | Elimina comillas dobles  | `"hola"` → `hola`          |
+| `ds'` | `d` + `s` + `'` | Elimina comillas simples | `'hola'` → `hola`          |
+| `ds(` | `d` + `s` + `(` | Elimina paréntesis       | `(hola)` → `hola`          |
+| `ds[` | `d` + `s` + `[` | Elimina corchetes        | `[hola]` → `hola`          |
+| `ds{` | `d` + `s` + `{` | Elimina llaves           | `{hola}` → `hola`          |
+| `ds<` | `d` + `s` + `<` | Elimina mayor/menor      | `<hola>` → `hola`          |
+| `dst` | `d` + `s` + `t` | Elimina etiqueta HTML    | `<div>hola</div>` → `hola` |
+
+---
+
+### 🔄 Cambiar (Change Surround)
+
+| Atajo  | Desglose              | Resultado              | Ejemplo                      |
+| ------ | --------------------- | ---------------------- | ---------------------------- |
+| `cs"'` | `c` + `s` + `"` + `'` | Cambia `"` a `'`       | `"hola"` → `'hola'`          |
+| `cs'"` | `c` + `s` + `'` + `"` | Cambia `'` a `"`       | `'hola'` → `"hola"`          |
+| `cs([` | `c` + `s` + `(` + `[` | Cambia `()` a `[]`     | `(hola)` → `[hola]`          |
+| `cs[{` | `c` + `s` + `[` + `{` | Cambia `[]` a `{}`     | `[hola]` → `{hola}`          |
+| `cs{"` | `c` + `s` + `{` + `"` | Cambia `{}` a `""`     | `{hola}` → `"hola"`          |
+| `cs<t` | `c` + `s` + `<` + `t` | Cambia `<>` a etiqueta | `<hola>` → `<div>hola</div>` |
+| `cst"` | `c` + `s` + `t` + `"` | Cambia etiqueta a `""` | `<div>hola</div>` → `"hola"` |
+
+---
+
+### 🆕 Atajos adicionales muy útiles
+
+| Atajo   | Desglose               | Resultado                    | Ejemplo             |
+| ------- | ---------------------- | ---------------------------- | ------------------- |
+| `ysiw`  | `y` + `s` + `iw` + `}` | Envuelve con `{}` y espacios | `hola` → `{ hola }` |
+| `ysiw]` | `y` + `s` + `iw` + `]` | Envuelve con `[]` y espacios | `hola` → `[ hola ]` |
+| `S)`    | igual que `S(`         | Envuelve con paréntesis      | `hola` → `(hola)`   |
+| `S]`    | igual que `S[`         | Envuelve con corchetes       | `hola` → `[hola]`   |
+| `S}`    | igual que `S{`         | Envuelve con llaves          | `hola` → `{hola}`   |
+| `S>`    | igual que `S<`         | Envuelve con mayor/menor     | `hola` → `<hola>`   |
+
 # Atajos en terminal
 
 En la mayoría de terminales (bash, zsh, fish, etc.) los atajos de edición vienen de **Readline** (modo Emacs por defecto). Estos son los más útiles:
