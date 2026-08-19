@@ -4,5 +4,5 @@ return {
 	init_optios = {
 		buildDirectory = "build",
 	},
-	root_markers = { "CMakePresets.json", "CTestConfig.cmake", ".git", "build", "cmake" },
+	root_markers = { "CMakePresets.json", "CTestConfig.cmake", ".git", "build", "cmake", "CMakeLists.txt" },
 }
