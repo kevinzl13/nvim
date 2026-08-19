@@ -61,6 +61,7 @@ return {
 			"jsonls",
 			"emmet_language_server",
 			"tailwindcss",
+			"cmake",
 		})
 	end,
 }

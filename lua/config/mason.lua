@@ -28,6 +28,8 @@ return {
 		"yaml-language-server",
 		"yamlfmt",
 		"tailwindcss-language-server",
+		"cmake",
+		"cmakelang",
 	},
 	max_concurrent_installers = 1,
 }
