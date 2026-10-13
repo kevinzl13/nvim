@@ -16,6 +16,9 @@ vim.keymap.set("n", "<leader>o", "o<Esc>k", opts)
 vim.keymap.set("i", "<C-s>", "<Cmd>w<CR>", opts)
 vim.keymap.set("i", "<C-q>", "<Esc>", opts)
 
+vim.keymap.set("i", "<M-j>", "<C-o>o", { desc = "Nueva línea debajo" })
+vim.keymap.set("i", "<M-S-j>", "<C-o>O", { desc = "Nueva línea arriba" })
+
 -- Visual Mode
 vim.keymap.set("v", "y", '"+y"<CR>', opts) -- copy to system clipboard
 

@@ -45,7 +45,7 @@ return {
 
 		vim.lsp.enable({
 			"lua_ls",
-			"pyright",
+			"basedpyright",
 			"gopls",
 			"rust_analyzer",
 			"clangd",

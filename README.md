@@ -479,6 +479,23 @@ hola mundo
 | `S}`    | igual que `S{`         | Envuelve con llaves          | `hola` → `{hola}`   |
 | `S>`    | igual que `S<`         | Envuelve con mayor/menor     | `hola` → `<hola>`   |
 
+# ⌨️ Scroll nvim
+
+| Atajo      | Acción                                          |
+| ---------- | ----------------------------------------------- |
+| `Ctrl + d` | Mueve la vista media página hacia abajo         |
+| `Ctrl + u` | Mueve la vista media página hacia arriba        |
+| `Ctrl + f` | Mueve la vista una página completa hacia abajo  |
+| `Ctrl + b` | Mueve la vista una página completa hacia arriba |
+
+# 🎯 Centrar la pantalla con el cursor
+
+| Atajo | Acción                                                          |
+| ----- | --------------------------------------------------------------- |
+| `zz`  | Centra la línea actual con el cursor en el medio de la pantalla |
+| `zt`  | Mueve la línea actual al tope de la pantalla                    |
+| `zb`  | Mueve la línea actual al fondo de la pantalla                   |
+
 # Atajos en terminal
 
 En la mayoría de terminales (bash, zsh, fish, etc.) los atajos de edición vienen de **Readline** (modo Emacs por defecto). Estos son los más útiles:
@@ -530,6 +547,8 @@ En la mayoría de terminales (bash, zsh, fish, etc.) los atajos de edición vien
 | `Alt + D`         | Borrar una palabra hacia adelante |
 | `Ctrl + Y`        | Pegar lo último borrado           |
 | `Alt + T`         | Intercambiar dos palabras         |
+
+---
 
 # Tmux
 
